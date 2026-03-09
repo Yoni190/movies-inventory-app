@@ -15,7 +15,7 @@ async function create (req, res) {
     res.redirect('/categories')
 }
 
-module.exports = [
+module.exports = {
     create,
     getCategories
-]
+}

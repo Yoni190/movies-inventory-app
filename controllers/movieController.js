@@ -16,7 +16,7 @@ async function create (req, res) {
     res.redirect('/')
 }
 
-module.exports = [
+module.exports = {
     create,
     getMovies
-]
+}

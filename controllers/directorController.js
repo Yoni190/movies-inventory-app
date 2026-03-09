@@ -15,7 +15,7 @@ async function create (req, res) {
     res.redirect('/directors')
 }
 
-module.exports = [
+module.exports = {
     create,
     getDirectors
-]
+}
