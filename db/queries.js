@@ -24,6 +24,12 @@ async function createDirector (f_name, l_name) {
     await pool.query('INSERT INTO directors (f_name, l_name) VALUES ($1, $2)', [f_name, l_name])
 }
 
+async function createMovie (title, description, rating) {
+    await pool.query('INSERT INTO movies (title, description, rating) VALUES ($1, $2, $3)', [title, description, rating])
+}
+
+
+
 
 
 module.exports = [
@@ -31,5 +37,6 @@ module.exports = [
     getCategories,
     getDirectors,
     createCategory,
-    createDirector
+    createDirector,
+    createMovie
 ]
