@@ -32,11 +32,11 @@ async function createMovie (title, description, rating) {
 
 
 
-module.exports = [
+module.exports = {
     getMovies,
     getCategories,
     getDirectors,
     createCategory,
     createDirector,
     createMovie
-]
+}
