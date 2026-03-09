@@ -1,8 +1,11 @@
+const db = require('../db/queries')
 
-function create (req, res) {
+async function create (req, res) {
     const { title, desc, rating, category, director } = req.body
 
-    console.log(title)
+    await db.createMovie(title, desc, rating)
+
+    res.redirect('/')
 }
 
 module.exports = [
