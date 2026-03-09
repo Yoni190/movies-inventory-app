@@ -16,10 +16,15 @@ async function getDirectors() {
     return rows
 }
 
+async function createCategory (name) {
+    await pool.query('INSERT INTO categories (name) VALUES ($1)', [name])
+}
+
 
 
 module.exports = [
     getMovies,
     getCategories,
-    getDirectors
+    getDirectors,
+    createCategory
 ]
