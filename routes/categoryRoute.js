@@ -5,5 +5,6 @@ const router = Router()
 
 router.get('/', categoryController.getCategories)
 router.post('/create', categoryController.create)
+router.get('/create', categoryController.getCreateForm)
 
 module.exports = router
