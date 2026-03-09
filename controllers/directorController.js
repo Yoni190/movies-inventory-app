@@ -15,7 +15,14 @@ async function create (req, res) {
     res.redirect('/directors')
 }
 
+function getCreateForm(req, res) {
+    res.render('createDirector', {
+        title: 'Director'
+    })
+}
+
 module.exports = {
     create,
-    getDirectors
+    getDirectors,
+    getCreateForm
 }
