@@ -1,5 +1,13 @@
 const db = require('../db/queries')
 
+async function getDirectors (req, res) {
+    const directors = await db.getDirectors()
+    res.render('directors', {
+        title: 'Directors',
+        directors: directors
+    })
+}
+
 async function create (req, res) {
     const { f_name, l_name } = req.body
 
@@ -8,5 +16,6 @@ async function create (req, res) {
 }
 
 module.exports = [
-    create
+    create,
+    getDirectors
 ]
