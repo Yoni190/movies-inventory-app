@@ -20,11 +20,16 @@ async function createCategory (name) {
     await pool.query('INSERT INTO categories (name) VALUES ($1)', [name])
 }
 
+async function createDirector (f_name, l_name) {
+    await pool.query('INSERT INTO directors (f_name, l_name) VALUES ($1, $2)', [f_name, l_name])
+}
+
 
 
 module.exports = [
     getMovies,
     getCategories,
     getDirectors,
-    createCategory
+    createCategory,
+    createDirector
 ]
