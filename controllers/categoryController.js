@@ -1,8 +1,10 @@
+const db = require('../db/queries')
 
-function create (req, res) {
+async function create (req, res) {
     const { category_name } = req.body
 
-    console.log(category_name)
+    await db.createCategory(category_name)
+    res.redirect('/')
 }
 
 module.exports = [
