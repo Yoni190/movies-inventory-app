@@ -16,7 +16,19 @@ async function create (req, res) {
     res.redirect('/')
 }
 
+async function getCreateForm(req, res) {
+    const categories = await db.getCategories()
+    const directors = await db.getDirectors()
+
+    res.render('createMovie', {
+        title: 'Movies',
+        categories,
+        directors
+    })
+}
+
 module.exports = {
     create,
-    getMovies
+    getMovies,
+    getCreateForm
 }
