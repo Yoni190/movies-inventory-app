@@ -1,5 +1,4 @@
-const { get } = require('../routes/movieRoute')
-const { pool } = require('./pool')
+const pool = require('./pool')
 
 async function getMovies() {
     const { rows } = await pool.query('SELECT * FROM movies')
