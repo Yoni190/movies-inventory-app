@@ -15,7 +15,14 @@ async function create (req, res) {
     res.redirect('/categories')
 }
 
+function getCreateForm(req, res) {
+    res.render('createCategory', {
+        title: 'Category'
+    })
+}
+
 module.exports = {
     create,
-    getCategories
+    getCategories,
+    getCreateForm
 }
