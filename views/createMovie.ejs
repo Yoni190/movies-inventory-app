@@ -11,12 +11,12 @@
         <input type="text" name="title" id="title">
         <textarea name="desc" id="desc" placeholder="Description"></textarea>
         <input type="text" name="rating" id="rating">
-        <select name="categories" id="categories">
+        <select name="categorie" id="categorie">
             <% categories.forEach((category) => { %>
                 <option value="<% category.id %>"><%= category.name %></option>
             <% }) %>
         </select>
-        <select name="directors" id="directors">
+        <select name="director" id="director">
             <% directors.forEach((director) => { %>
                 <option value="<% director.id %>"><%= director.name %></option>
             <% }) %>
