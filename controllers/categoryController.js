@@ -4,7 +4,7 @@ async function create (req, res) {
     const { category_name } = req.body
 
     await db.createCategory(category_name)
-    res.redirect('/')
+    res.redirect('/categories')
 }
 
 module.exports = [
