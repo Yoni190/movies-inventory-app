@@ -9,8 +9,8 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
 app.use('/', movieRoute)
-app.use('/category', categoryRoute)
-app.use('/director', directorRoute)
+app.use('/categories', categoryRoute)
+app.use('/directors', directorRoute)
 
 
 const PORT = process.env.PORT || 3000
