@@ -11,9 +11,15 @@ async function getCategories() {
     return rows
 }
 
+async function getDirectors() {
+    const { rows } = await pool.query('SELECT * FROM directors')
+    return rows
+}
+
 
 
 module.exports = [
     getMovies,
-    getCategories
+    getCategories,
+    getDirectors
 ]
