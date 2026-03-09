@@ -1,8 +1,9 @@
+const db = require('../db/queries')
 
-function create (req, res) {
-    const { director_name } = req.body
+async function create (req, res) {
+    const { f_name, l_name } = req.body
 
-    console.log(director_name)
+    await db.createDirector(f_name, l_name)
 }
 
 module.exports = [
