@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <h1>Create <%= title %></h1>
+    <form action="/create" method="POST">
+        <input type="text" name="title" id="title">
+        <textarea name="desc" id="desc" placeholder="Description"></textarea>
+        <input type="text" name="rating" id="rating">
+        <select name="categories" id="categories">
+            <% categories.forEach((category) => { %>
+                <option value="<% category.id %>"><%= category.name %></option>
+            <% }) %>
+        </select>
+        <select name="directors" id="directors">
+            <% directors.forEach((director) => { %>
+                <option value="<% director.id %>"><%= director.name %></option>
+            <% }) %>
+        </select>
+        <button type="submit">Create Movie</button>
+    </form>
+</body>
+</html>
