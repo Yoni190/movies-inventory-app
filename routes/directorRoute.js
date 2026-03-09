@@ -5,5 +5,6 @@ const router = Router()
 
 router.get('/', directorController.getDirectors)
 router.post('/create', directorController.create)
+router.get('/create', directorController.getCreateForm)
 
 module.exports = router
