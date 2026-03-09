@@ -6,8 +6,14 @@ async function getMovies() {
     return rows
 }
 
+async function getCategories() {
+    const { rows } = await pool.query('SELECT * FROM categories')
+    return rows
+}
+
 
 
 module.exports = [
-    getMovies
+    getMovies,
+    getCategories
 ]
