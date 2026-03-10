@@ -8,9 +8,19 @@ async function getMovies (req, res) {
         movies.map((movie) => db.getMovieDirectors(movie.id))
     )
 
+
+
+
+    movies.map((movie) => {
+        movie.directors = directors.flat().filter(director => director.movie_id === movie.id)
+    })
+
+
     const categories = await Promise.all(
         movies.map((movie) => db.getMovieCategories(movie.id))
     )
+
+
 
     res.render('movies', {
         title: 'Movies',

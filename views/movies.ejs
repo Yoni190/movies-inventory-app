@@ -10,7 +10,7 @@
     <% movies.forEach((movie) => { %>
         <p><%= movie.title %></p>
         <p><%= movie.rating %></p>
-        <% directors[0].forEach((director) => { %>
+        <% movie.directors.forEach((director) => { %>
             <p><%= director.f_name %> <%= director.l_name %></p>
        <% }) %>
 
