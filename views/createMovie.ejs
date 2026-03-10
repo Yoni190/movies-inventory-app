@@ -11,14 +11,22 @@
         <input type="text" name="title" id="title">
         <textarea name="desc" id="desc" placeholder="Description"></textarea>
         <input type="text" name="rating" id="rating">
-        <select name="category" id="category">
+
+        <!-- <select name="category" id="category">
             <option value="" selected disabled hidden>
                 Select Category
             </option>
             <% categories.forEach((category) => { %>
                 <option value="<%= category.id %>"><%= category.name %></option>
             <% }) %>
-        </select>
+        </select> -->
+
+        <div>
+            <% categories.forEach((category) => { %>
+                <input type="checkbox" name="category[]" id="<%=category.id %>" value="<%= category.id %>">
+                <label for="<%= category.id %>"><%= category.name %></label>
+            <% }) %>
+        </div>
 
 
         <div>
@@ -27,16 +35,6 @@
                 <label for="<%= director.id %>"><%= director.f_name %> <%= director.l_name %></label>
             <% }) %>
         </div>
-
-        
-        <!-- <select name="director" id="director">
-            <option value="" selected disabled hidden>
-                Select Director
-            </option>
-            <% directors.forEach((director) => { %>
-                <option value="<%= director.id %>"><%= director.f_name %> <%= director.l_name %></option>
-            <% }) %>
-        </select> -->
         <button type="submit">Create Movie</button>
     </form>
 </body>
