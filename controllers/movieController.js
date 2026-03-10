@@ -12,12 +12,11 @@ async function getMovies (req, res) {
         movies.map((movie) => db.getMovieCategories(movie.id))
     )
 
-    console.log(categories)
-
     res.render('movies', {
         title: 'Movies',
         movies: movies,
-        directors: directors
+        directors: directors,
+        categories: categories
     })
 }
 
