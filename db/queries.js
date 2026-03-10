@@ -81,5 +81,6 @@ module.exports = {
     getMovieDirectors,
     getMovieCategories,
     getDirector,
-    editDirector
+    editDirector,
+    getCategory
 }
