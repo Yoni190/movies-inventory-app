@@ -80,6 +80,15 @@ async function getMovie(id) {
 
 async function editMovie(id, title, description, rating, categories_id, directors_id) {
     await pool.query('UPDATE movies SET title=$1, description=$2, rating=$3 WHERE id=$4', [title, description, rating, id])
+
+    categories_id.map((category_id) => {
+        editMovieCategory(id, category_id)
+    })
+}
+
+async function editMovieCategory (movie_id, category_id) {
+    await pool.query('DELETE from movie_category WHERE movie_id=$1', [movie_id])
+    await pool.query('INSERT INTO movie_category (movie_id, category_id) VALUES ($1, $2)', [movie_id, category_id])
 }
 
 module.exports = {
