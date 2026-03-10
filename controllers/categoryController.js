@@ -33,9 +33,19 @@ async function getEditForm(req, res) {
     
 }
 
+async function edit(req, res) {
+    const { category_id } = req.params
+    const { name } = req.body
+
+    await db.editCategory(name, category_id)
+
+    res.redirect('/categories')
+}
+
 module.exports = {
     create,
     getCategories,
     getCreateForm,
-    getEditForm
+    getEditForm,
+    edit
 }
