@@ -12,7 +12,8 @@ async function getMovies (req, res) {
 
     res.render('movies', {
         title: 'Movies',
-        movies: movies
+        movies: movies,
+        directors: directors
     })
 }
 
