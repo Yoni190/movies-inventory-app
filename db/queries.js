@@ -69,6 +69,10 @@ async function editDirector(f_name, l_name, id) {
     await pool.query('UPDATE directors SET f_name=$1, l_name=$2 WHERE id=$3', [f_name, l_name, id])
 }
 
+async function editCategory(name, id) {
+    await pool.query('UPDATE categories SET name=$1 WHERE id=$2', [name, id])
+}
+
 
 
 module.exports = {
@@ -82,5 +86,6 @@ module.exports = {
     getMovieCategories,
     getDirector,
     editDirector,
-    getCategory
+    getCategory,
+    editCategory
 }
