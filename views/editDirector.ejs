@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <h1>Edit <%= title %></h1>
+    <form action="/directors/create" method="POST">
+        <input type="text" name="f_name" id="f_name" value="<%= director.f_name %>">
+        <input type="text" name="l_name" id="l_name" value="<%= director.l_name %>">
+        <button type="submit">Edit Director</button>
+    </form>
+    <a href="/">Go back home</a>
+</body>
+</html>
