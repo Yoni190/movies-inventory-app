@@ -112,6 +112,11 @@ async function deleteCategory(category_id) {
     await pool.query('DELETE FROM categories WHERE id=$1', [category_id])
 }
 
+async function deleteDirector(director_id) {
+    await pool.query('DELETE FROM movie_director WHERE director_id=$1', [director_id])
+    await pool.query('DELETE FROM directors WHERE id=$1', [director_id])
+}
+
 module.exports = {
     getMovies,
     getCategories,
@@ -128,5 +133,6 @@ module.exports = {
     getMovie,
     editMovie,
     deleteMovie,
-    deleteCategory
+    deleteCategory,
+    deleteDirector
 }

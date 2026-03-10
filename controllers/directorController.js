@@ -41,10 +41,20 @@ async function edit(req, res) {
     res.redirect('/directors')
 }
 
+async function deleteDirector(req, res) {
+    const { director_id } = req.params
+
+    await db.deleteDirector(director_id)
+
+    res.redirect('/directors')
+
+}
+
 module.exports = {
     create,
     getDirectors,
     getCreateForm,
     getEditForm,
-    edit
+    edit,
+    deleteDirector
 }
