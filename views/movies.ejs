@@ -14,6 +14,7 @@
                 <th>Rating</th>
                 <th>Directors</th>
                 <th>Genre</th>
+                <th>Actions</th>
             </tr>
         </thead>
 
@@ -31,6 +32,10 @@
                         <% movie.categories.forEach((category) => { %>
                             <%= category.name%>
                         <% }) %>
+                    </td>
+
+                    <td>
+                        <a href="/<%= movie.id %>/edit">Edit movie</a>
                     </td>
 
                 </tr>
