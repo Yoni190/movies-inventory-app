@@ -8,7 +8,11 @@ async function getMovies (req, res) {
         movies.map((movie) => db.getMovieDirectors(movie.id))
     )
 
-    console.log(directors)
+    const categories = await Promise.all(
+        movies.map((movie) => db.getMovieCategories(movie.id))
+    )
+
+    console.log(categories)
 
     res.render('movies', {
         title: 'Movies',
