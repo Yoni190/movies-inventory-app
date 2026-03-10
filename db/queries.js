@@ -23,11 +23,16 @@ async function createDirector (f_name, l_name) {
     await pool.query('INSERT INTO directors (f_name, l_name) VALUES ($1, $2)', [f_name, l_name])
 }
 
-async function createMovie (title, description, rating) {
+async function createMovie (title, description, rating, category_id, director_id) {
     const { rows } = await pool.query('INSERT INTO movies (title, description, rating) VALUES ($1, $2, $3) RETURNING id', [title, description, rating])
-    return rows[0].id
+    const movie_id = rows[0].id
+
+    createMovieCategory(movie_id, category_id)
 }
 
+async function createMovieCategory (movie_id, category_id) {
+    await pool.query('INSERT INTO movie_category (movie_id, category_id) VALUES ($1, $2)', [movie_id, category_id])
+}
 
 
 
