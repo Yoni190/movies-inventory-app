@@ -9,6 +9,7 @@
     <h1><%= title %></h1>
     <% directors.forEach((director) => { %>
         <p><%= director.f_name %> <%= director.l_name %></p>
+        <a href="directors/<%= director.id %>/edit">Edit Director</a>
     <% }) %>
     <a href="/">Go back home</a>
 </body>
