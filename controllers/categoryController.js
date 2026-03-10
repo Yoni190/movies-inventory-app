@@ -21,8 +21,21 @@ function getCreateForm(req, res) {
     })
 }
 
+async function getEditForm(req, res) {
+    const { category_id } = req.params
+
+    const category = await db.getCategory(category_id)
+
+    res.render('editCategory', {
+        title: 'Category',
+        category: category[0]
+    })
+    
+}
+
 module.exports = {
     create,
     getCategories,
-    getCreateForm
+    getCreateForm,
+    getEditForm
 }
