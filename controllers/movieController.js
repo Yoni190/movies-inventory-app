@@ -11,7 +11,7 @@ async function getMovies (req, res) {
 async function create (req, res) {
     const { title, desc, rating, category, director } = req.body
 
-    await db.createMovie(title, desc, rating)
+    await db.createMovie(title, desc, rating, category, director)
 
     res.redirect('/')
 }
