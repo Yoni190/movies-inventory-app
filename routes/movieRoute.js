@@ -7,5 +7,6 @@ router.get('/', movieController.getMovies)
 router.post('/create', movieController.create)
 router.get('/create', movieController.getCreateForm)
 router.get('/:movie_id/edit', movieController.getEditForm)
+router.post('/:movie_id/edit', movieController.edit)
 
 module.exports = router
