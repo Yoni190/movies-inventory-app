@@ -9,6 +9,7 @@
     <h1><%= title %></h1>
     <% categories.forEach((category) => { %>
         <p><%= category.name %></p>
+        <a href="categories/<%= category.id %>/edit">Edit Category</a>
     <% }) %>
     <a href="/">Go back home</a>
 </body>
