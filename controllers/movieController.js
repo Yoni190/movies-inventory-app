@@ -78,10 +78,17 @@ async function edit (req, res) {
     res.redirect('/')
 }
 
+async function deleteMovie(req, res) {
+    const { movie_id } = req.params
+
+
+}
+
 module.exports = {
     create,
     getMovies,
     getCreateForm,
     getEditForm,
-    edit
+    edit,
+    deleteMovie
 }
