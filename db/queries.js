@@ -84,11 +84,20 @@ async function editMovie(id, title, description, rating, categories_id, director
     categories_id.map((category_id) => {
         editMovieCategory(id, category_id)
     })
+
+    directors_id.map((director_id) => {
+        editMovieDirector(id, director_id)
+    })
 }
 
 async function editMovieCategory (movie_id, category_id) {
     await pool.query('DELETE from movie_category WHERE movie_id=$1', [movie_id])
     await pool.query('INSERT INTO movie_category (movie_id, category_id) VALUES ($1, $2)', [movie_id, category_id])
+}
+
+async function editMovieDirector (movie_id, director_id) {
+    await pool.query('DELETE from movie_director WHERE movie_id=$1', [movie_id])
+    await pool.query('INSERT INTO movie_director (movie_id, director_id) VALUES ($1, $2)', [movie_id, director_id])
 }
 
 module.exports = {
