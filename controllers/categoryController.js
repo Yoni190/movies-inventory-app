@@ -42,10 +42,19 @@ async function edit(req, res) {
     res.redirect('/categories')
 }
 
+async function deleteCategory (req, res) {
+    const { category_id } = req.params
+
+    await db.deleteCategory(category_id)
+
+    res.redirect('/categories')
+}
+
 module.exports = {
     create,
     getCategories,
     getCreateForm,
     getEditForm,
-    edit
+    edit,
+    deleteCategory
 }
