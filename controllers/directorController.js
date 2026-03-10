@@ -21,8 +21,21 @@ function getCreateForm(req, res) {
     })
 }
 
+async function getEditForm(req, res) {
+    const { director_id } = req.params
+
+    const director = await db.getDirector(director_id)
+    
+    res.render('editDirector', {
+        title: 'Director',
+        director: director[0]
+    })
+
+}
+
 module.exports = {
     create,
     getDirectors,
-    getCreateForm
+    getCreateForm,
+    getEditForm
 }
