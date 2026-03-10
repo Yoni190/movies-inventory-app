@@ -10,6 +10,9 @@
     <% categories.forEach((category) => { %>
         <p><%= category.name %></p>
         <a href="categories/<%= category.id %>/edit">Edit Category</a>
+        <form action="categories/<%= category.id %>/delete" method="POST">
+            <button type="submit">Delete</button>
+        </form>
     <% }) %>
     <a href="/">Go back home</a>
 </body>
