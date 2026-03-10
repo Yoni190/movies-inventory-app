@@ -47,8 +47,29 @@ async function getCreateForm(req, res) {
     })
 }
 
+async function getEditForm(req, res) {
+    const { movie_id } = req.params
+
+    const movie = await db.getMovie(movie_id)
+
+    const categories = await db.getCategories()
+    const directors = await db.getDirectors()
+
+    const selectedDirectors = await db.getMovieDirectors(movie_id)
+    console.log(selectedDirectors)
+
+    res.render('editMovie', {
+        title: 'Movie',
+        movie: movie[0],
+        categories,
+        directors,
+        selectedDirectors
+    })
+}
+
 module.exports = {
     create,
     getMovies,
-    getCreateForm
+    getCreateForm,
+    getEditForm
 }
