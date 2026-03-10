@@ -10,6 +10,9 @@
     <% directors.forEach((director) => { %>
         <p><%= director.f_name %> <%= director.l_name %></p>
         <a href="directors/<%= director.id %>/edit">Edit Director</a>
+        <form action="directors/<%= director.id %>/delete" method="POST">
+            <button type="submit">Delete</button>
+        </form>
     <% }) %>
     <a href="/">Go back home</a>
 </body>
