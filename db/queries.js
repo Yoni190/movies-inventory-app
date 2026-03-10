@@ -28,7 +28,7 @@ async function createMovie (title, description, rating, category_id, director_id
     const movie_id = rows[0].id
 
     createMovieCategory(movie_id, category_id)
-    createDirector(movie_id, director_id)
+    createMovieDirector(movie_id, director_id)
 }
 
 async function createMovieCategory (movie_id, category_id) {
