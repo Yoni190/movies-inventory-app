@@ -8,58 +8,63 @@
 
 </head>
 <body>
-    <h1><%= title %></h1>
-    <table class="border">
-        <thead>
-            <tr>
-                <th class="text-center">Title</th>
-                <th class="text-center">Rating</th>
-                <th class="text-center">Directors</th>
-                <th class="text-center">Genre</th>
-                <th class="text-center">Actions</th>
-            </tr>
-        </thead>
+    <%- include('partials/header.ejs') %>
 
-        <tbody>
-            <% movies.forEach((movie) => { %>
-                <tr>
-                    <td><%= movie.title %></td>
-                    <td><%= movie.rating %></td>
-                    <td>
-                        <% movie.directors.forEach((director) => { %>
-                            <%= director.f_name %> <%= director.l_name %>
-                        <% }) %>
-                    </td>
-                    <td>
-                        <% movie.categories.forEach((category) => { %>
-                            <%= category.name%>
-                        <% }) %>
-                    </td>
+    <div class="row">
+        <div class="col-3">
+            <%- include('partials/sidebar.ejs') %>
+        </div>
 
-                    <td>
-                        <a href="/<%= movie.id %>/edit">Edit movie</a>
-
-                        <form action="/<%= movie.id %>/delete" method="POST">
-                            <button>Delete Movie</button>
-                        </form>
-                    </td>
-
-                </tr>
-                
-            <% }) %>
-        </tbody>
+        <div class="col-9">
+            <div class="d-flex justify-content-center">
+                <table class="border w-75">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Title</th>
+                            <th class="text-center">Rating</th>
+                            <th class="text-center">Directors</th>
+                            <th class="text-center">Genre</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% movies.forEach((movie) => { %>
+                            <tr>
+                                <td><%= movie.title %></td>
+                                <td><%= movie.rating %></td>
+                                <td>
+                                    <% movie.directors.forEach((director) => { %>
+                                        <%= director.f_name %> <%= director.l_name %>
+                                    <% }) %>
+                                </td>
+                                <td>
+                                    <% movie.categories.forEach((category) => { %>
+                                        <%= category.name%>
+                                    <% }) %>
+                                </td>
+                                <td>
+                                    <a href="/<%= movie.id %>/edit">Edit movie</a>
+                                    <form action="/<%= movie.id %>/delete" method="POST">
+                                        <button>Delete Movie</button>
+                                    </form>
+                                </td>
+                            </tr>
         
-    </table>
-
-    <div>
-        <a href="/create">Create Movies</a>
-        <a href="/directors/create">Create Directors</a>
-        <a href="/categories/create">Create Categories</a>
-    </div>
-
-    <div>
-        <a href="/directors">Directors</a>
-        <a href="/categories">Categories</a>
+                        <% }) %>
+                    </tbody>
+        
+                </table>
+            </div>
+            <div>
+                <a href="/create">Create Movies</a>
+                <a href="/directors/create">Create Directors</a>
+                <a href="/categories/create">Create Categories</a>
+            </div>
+            <div>
+                <a href="/directors">Directors</a>
+                <a href="/categories">Categories</a>
+            </div>
+        </div>
     </div>
 </body>
 </html>
