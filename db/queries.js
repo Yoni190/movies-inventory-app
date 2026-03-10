@@ -78,6 +78,9 @@ async function getMovie(id) {
     return rows
 }
 
+async function editMovie(id, title, description, rating, categories_id, directors_id) {
+    await pool.query('UPDATE movies SET title=$1, description=$2, rating=$3 WHERE id=$4', [title, description, rating])
+}
 
 module.exports = {
     getMovies,
@@ -92,5 +95,6 @@ module.exports = {
     editDirector,
     getCategory,
     editCategory,
-    getMovie
+    getMovie,
+    editMovie
 }
