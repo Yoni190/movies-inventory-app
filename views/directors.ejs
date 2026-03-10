@@ -14,13 +14,17 @@
             <%- include('partials/sidebar.ejs') %>
         </div>
 
-        <div class="col-10">
+        <div class="col-10 row mt-3 gap-4 h-25">
             <% directors.forEach((director) => { %>
-                <p><%= director.f_name %> <%= director.l_name %></p>
-                <a href="directors/<%= director.id %>/edit">Edit Director</a>
-                <form action="directors/<%= director.id %>/delete" method="POST">
-                    <button type="submit">Delete</button>
-                </form>
+                <div class="card p-3 col-3 h-25">
+                    <h5><%= director.f_name %> <%= director.l_name %></h5>
+                    <div class="d-flex gap-4">
+                        <a href="directors/<%= director.id %>/edit" class="text-decoration-none text-white border bg-primary p-1 rounded">Edit Director</a>
+                        <form action="directors/<%= director.id %>/delete" method="POST">
+                            <button type="submit" class="border border-danger rounded bg-danger text-white py-1">Delete</button>
+                        </form>
+                    </div>
+                </div>
             <% }) %>
         </div>
     </div>
