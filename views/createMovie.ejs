@@ -24,7 +24,7 @@
                 Select Director
             </option>
             <% directors.forEach((director) => { %>
-                <option value="<% director.id %>"><%= director.name %></option>
+                <option value="<% director.id %>"><%= director.f_name %> <%= director.l_name %></option>
             <% }) %>
         </select>
         <button type="submit">Create Movie</button>
