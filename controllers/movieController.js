@@ -56,14 +56,15 @@ async function getEditForm(req, res) {
     const directors = await db.getDirectors()
 
     const selectedDirectors = await db.getMovieDirectors(movie_id)
-    console.log(selectedDirectors)
+    const selectedCategories = await db.getMovieCategories(movie_id)
 
     res.render('editMovie', {
         title: 'Movie',
         movie: movie[0],
         categories,
         directors,
-        selectedDirectors
+        selectedDirectors,
+        selectedCategories
     })
 }
 
