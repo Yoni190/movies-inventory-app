@@ -68,9 +68,20 @@ async function getEditForm(req, res) {
     })
 }
 
+async function edit (req, res) {
+    const { movie_id } = req.params
+
+    const { title, desc, rating, categories, directors } = req.body
+
+    await db.editMovie(movie_id, title, desc, rating, categories, directors)
+
+    res.redirect('/')
+}
+
 module.exports = {
     create,
     getMovies,
     getCreateForm,
-    getEditForm
+    getEditForm,
+    edit
 }
