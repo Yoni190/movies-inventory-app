@@ -7,5 +7,6 @@ router.get('/', directorController.getDirectors)
 router.post('/create', directorController.create)
 router.get('/create', directorController.getCreateForm)
 router.get('/:director_id/edit', directorController.getEditForm)
+router.post('/:director_id/edit', directorController.edit)
 
 module.exports = router
