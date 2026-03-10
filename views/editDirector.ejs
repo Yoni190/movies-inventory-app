@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Edit <%= title %></h1>
-    <form action="/directors/create" method="POST">
+    <form action="/directors/<%= director.id %>/edit" method="POST">
         <input type="text" name="f_name" id="f_name" value="<%= director.f_name %>">
         <input type="text" name="l_name" id="l_name" value="<%= director.l_name %>">
         <button type="submit">Edit Director</button>
