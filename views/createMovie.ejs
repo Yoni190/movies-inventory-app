@@ -16,7 +16,7 @@
                 Select Category
             </option>
             <% categories.forEach((category) => { %>
-                <option value="<% category.id %>"><%= category.name %></option>
+                <option value="<%= category.id %>"><%= category.name %></option>
             <% }) %>
         </select>
         <select name="director" id="director">
@@ -24,7 +24,7 @@
                 Select Director
             </option>
             <% directors.forEach((director) => { %>
-                <option value="<% director.id %>"><%= director.f_name %> <%= director.l_name %></option>
+                <option value="<%= director.id %>"><%= director.f_name %> <%= director.l_name %></option>
             <% }) %>
         </select>
         <button type="submit">Create Movie</button>
