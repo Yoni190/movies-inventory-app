@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Edit <%= title %></h1>
-    <form action="/create" method="POST">
+    <form action="/<%= movie.id %>/edit" method="POST">
         <input type="text" name="title" id="title" value="<%= movie.title %>">
         <textarea name="desc" id="desc" placeholder="Description"><%= movie.description %></textarea>
         <input type="text" name="rating" id="rating" value="<%= movie.rating %>">
