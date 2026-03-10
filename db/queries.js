@@ -55,6 +55,10 @@ async function createMovieDirector (movie_id, director_id) {
     await pool.query('INSERT INTO movie_director (movie_id, director_id) VALUES($1, $2)', [movie_id, director_id])
 }
 
+async function getDirector(id) {
+    const { rows } = await pool.query('SELECT * FROM directors WHERE id=$1', [id])
+    return rows
+}
 
 
 
@@ -66,5 +70,6 @@ module.exports = {
     createDirector,
     createMovie,
     getMovieDirectors,
-    getMovieCategories
+    getMovieCategories,
+    getDirector
 }
