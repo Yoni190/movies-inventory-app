@@ -14,13 +14,18 @@
             <%- include('partials/sidebar.ejs') %>
         </div>
 
-        <div class="col-10">
+        <div class="col-10 row mt-3 gap-4 h-25">
             <% categories.forEach((category) => { %>
-                <p><%= category.name %></p>
-                <a href="categories/<%= category.id %>/edit">Edit Category</a>
-                <form action="categories/<%= category.id %>/delete" method="POST">
-                    <button type="submit">Delete</button>
-                </form>
+                <div class="card p-3 col-3 h-25">
+                    <h5><%= category.name %></h5>
+
+                    <div class="d-flex gap-4">
+                        <a href="categories/<%= category.id %>/edit" class="text-decoration-none text-white border bg-primary p-1 rounded">Edit Category</a>
+                        <form action="categories/<%= category.id %>/delete" method="POST">
+                            <button type="submit" class="border border-danger rounded bg-danger text-white py-1">Delete</button>
+                        </form>
+                    </div>
+                </div>
             <% }) %>
         </div>
     </div>
