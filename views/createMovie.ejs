@@ -19,14 +19,24 @@
                 <option value="<%= category.id %>"><%= category.name %></option>
             <% }) %>
         </select>
-        <select name="director" id="director">
+
+
+        <div>
+            <% directors.forEach((director) => { %>
+                <input type="checkbox" name="directors[]" id="<%=director.id %>" value="<%= director.id %>">
+                <label for="<%= director.id %>"><%= director.f_name %> <%= director.l_name %></label>
+            <% }) %>
+        </div>
+
+        
+        <!-- <select name="director" id="director">
             <option value="" selected disabled hidden>
                 Select Director
             </option>
             <% directors.forEach((director) => { %>
                 <option value="<%= director.id %>"><%= director.f_name %> <%= director.l_name %></option>
             <% }) %>
-        </select>
+        </select> -->
         <button type="submit">Create Movie</button>
     </form>
 </body>
