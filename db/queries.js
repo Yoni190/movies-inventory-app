@@ -33,11 +33,13 @@ async function createDirector (f_name, l_name) {
     await pool.query('INSERT INTO directors (f_name, l_name) VALUES ($1, $2)', [f_name, l_name])
 }
 
-async function createMovie (title, description, rating, category_id, directors_id) {
+async function createMovie (title, description, rating, categories_id, directors_id) {
     const { rows } = await pool.query('INSERT INTO movies (title, description, rating) VALUES ($1, $2, $3) RETURNING id', [title, description, rating])
     const movie_id = rows[0].id
 
-    createMovieCategory(movie_id, category_id)
+    categories_id.map((category_id) => {
+        createMovieCategory(movie_id, category_id)
+    })
 
     directors_id.map((director_id) => {
         createMovieDirector(movie_id, director_id)
