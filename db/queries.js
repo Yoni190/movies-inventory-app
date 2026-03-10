@@ -100,6 +100,13 @@ async function editMovieDirector (movie_id, director_id) {
     await pool.query('INSERT INTO movie_director (movie_id, director_id) VALUES ($1, $2)', [movie_id, director_id])
 }
 
+
+async function deleteMovie(movie_id) {
+    await pool.query('DELETE FROM movie_director WHERE movie_id=$1', [movie_id])
+    await pool.query('DELETE FROM movie_category WHERE movie_id=$1', [movie_id])
+    await pool.query('DELETE FROM movies WHERE id=$1', [movie_id])
+}
+
 module.exports = {
     getMovies,
     getCategories,
@@ -114,5 +121,6 @@ module.exports = {
     getCategory,
     editCategory,
     getMovie,
-    editMovie
+    editMovie,
+    deleteMovie
 }

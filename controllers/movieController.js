@@ -81,6 +81,9 @@ async function edit (req, res) {
 async function deleteMovie(req, res) {
     const { movie_id } = req.params
 
+    await db.deleteMovie(movie_id)
+
+    res.redirect('/')
 
 }
 
