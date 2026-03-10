@@ -33,9 +33,18 @@ async function getEditForm(req, res) {
 
 }
 
+async function edit(req, res) {
+    const { director_id } = req.params
+    const { f_name, l_name } = req.body
+
+    await db.editDirector(f_name, l_name, director_id)
+    res.redirect('/directors')
+}
+
 module.exports = {
     create,
     getDirectors,
     getCreateForm,
-    getEditForm
+    getEditForm,
+    edit
 }
