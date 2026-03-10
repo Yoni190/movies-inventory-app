@@ -7,19 +7,38 @@
 </head>
 <body>
     <h1><%= title %></h1>
-    <% movies.forEach((movie) => { %>
-        <p><%= movie.title %></p>
-        <p><%= movie.rating %></p>
-        <% movie.directors.forEach((director) => { %>
-            <p><%= director.f_name %> <%= director.l_name %></p>
-       <% }) %>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Rating</th>
+                <th>Directors</th>
+                <th>Genre</th>
+            </tr>
+        </thead>
 
-       <% movie.categories.forEach((category) => { %>
-            <p><%= category.name %></p>
-       <% }) %>
+        <tbody>
+            <% movies.forEach((movie) => { %>
+                <tr>
+                    <td><%= movie.title %></td>
+                    <td><%= movie.rating %></td>
+                    <td>
+                        <% movie.directors.forEach((director) => { %>
+                            <%= director.f_name %> <%= director.l_name %>
+                        <% }) %>
+                    </td>
+                    <td>
+                        <% movie.categories.forEach((category) => { %>
+                            <%= category.name%>
+                        <% }) %>
+                    </td>
 
-
-    <% }) %>
+                </tr>
+                
+            <% }) %>
+        </tbody>
+        
+    </table>
 
     <div>
         <a href="/create">Create Movies</a>
