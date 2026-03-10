@@ -11,42 +11,44 @@
     <%- include('partials/header.ejs') %>
 
     <div class="row">
-        <div class="col-3">
+        <div class="col-2">
             <%- include('partials/sidebar.ejs') %>
         </div>
 
-        <div class="col-9">
+        <div class="col-10">
             <div class="d-flex justify-content-center">
-                <table class="border w-75">
+                <table class="border w-75 mt-3 table">
                     <thead>
                         <tr>
-                            <th class="text-center">Title</th>
-                            <th class="text-center">Rating</th>
-                            <th class="text-center">Directors</th>
-                            <th class="text-center">Genre</th>
-                            <th class="text-center">Actions</th>
+                            <th class="text-center p-3 border border-black">Title</th>
+                            <th class="text-center p-3 border border-black">Rating</th>
+                            <th class="text-center p-3 border border-black">Directors</th>
+                            <th class="text-center p-3 border border-black">Genre</th>
+                            <th class="text-center p-3 border border-black border-bottom-0">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         <% movies.forEach((movie) => { %>
                             <tr>
-                                <td><%= movie.title %></td>
-                                <td><%= movie.rating %></td>
-                                <td>
+                                <td class="text-center border border-black p-3"><%= movie.title %></td>
+                                <td class="text-center border border-black p-3"><%= movie.rating %></td>
+                                <td class="text-center border border-black p-3">
                                     <% movie.directors.forEach((director) => { %>
                                         <%= director.f_name %> <%= director.l_name %>
                                     <% }) %>
                                 </td>
-                                <td>
+                                <td class="text-center border border-black p-3 border-end-0">
                                     <% movie.categories.forEach((category) => { %>
                                         <%= category.name%>
                                     <% }) %>
                                 </td>
-                                <td>
-                                    <a href="/<%= movie.id %>/edit">Edit movie</a>
-                                    <form action="/<%= movie.id %>/delete" method="POST">
-                                        <button>Delete Movie</button>
-                                    </form>
+                                <td class="border border-black p-3">
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <a href="/<%= movie.id %>/edit" class="text-decoration-none border border-primary px-1 rounded bg-primary text-white">Edit movie</a>
+                                        <form action="/<%= movie.id %>/delete" method="POST" class="d-inline">
+                                            <button class="border border-danger rounded bg-danger text-white">Delete Movie</button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
         
