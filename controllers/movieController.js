@@ -2,6 +2,14 @@ const db = require('../db/queries')
 
 async function getMovies (req, res) {
     const movies = await db.getMovies()
+    
+
+    const directors = await Promise.all(
+        movies.map((movie) => db.getMovieDirectors(movie.id))
+    )
+
+    console.log(directors)
+
     res.render('movies', {
         title: 'Movies',
         movies: movies

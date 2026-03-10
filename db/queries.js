@@ -6,7 +6,12 @@ async function getMovies() {
 }
 
 async function getMovieDirectors(id) {
-    const { rows } = await pool.query('SELECT * FROM movie_director WHERE movie_id=$1', [id])
+    const { rows } = await pool.query('SELECT * FROM directors JOIN movie_director ON directors.id = movie_director.director_id WHERE movie_director.movie_id=$1', [id])
+    return rows
+}
+
+async function getDirector(id) {
+    const { rows } = await pool.query('SELECT * FROM directors WHERE id=$1', [id])
     return rows
 }
 
@@ -54,5 +59,6 @@ module.exports = {
     createCategory,
     createDirector,
     createMovie,
-    getMovieDirectors
+    getMovieDirectors,
+    getDirector
 }
