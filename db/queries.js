@@ -28,10 +28,15 @@ async function createMovie (title, description, rating, category_id, director_id
     const movie_id = rows[0].id
 
     createMovieCategory(movie_id, category_id)
+    createDirector(movie_id, director_id)
 }
 
 async function createMovieCategory (movie_id, category_id) {
     await pool.query('INSERT INTO movie_category (movie_id, category_id) VALUES ($1, $2)', [movie_id, category_id])
+}
+
+async function createMovieDirector (movie_id, director_id) {
+    await pool.query('INSERT INTO movie_director (movie_id, director_id) VALUES($1, $2)', [movie_id, director_id])
 }
 
 
