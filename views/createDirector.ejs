@@ -4,14 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-    <h1>Create <%= title %></h1>
-    <form action="/directors/create" method="POST">
-        <input type="text" name="f_name" id="f_name">
-        <input type="text" name="l_name" id="l_name">
-        <button type="submit">Create Director</button>
-    </form>
-    <a href="/">Go back home</a>
+    <%- include('partials/header.ejs') %>
+
+    <div class="row">
+        <div class="col-2">
+            <%- include('partials/sidebar.ejs') %>
+        </div>
+
+        <div class="col-10 row mt-3 gap-4 h-25">
+            <form action="/directors/create" method="POST">
+                <h4>Create Director</h4>
+                <input type="text" name="f_name" id="f_name" placeholder="First Name">
+                <input type="text" name="l_name" id="l_name" placeholder="Last Name">
+                <button type="submit" class="border border-primary rounded bg-primary text-white py-1">Create Director</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
