@@ -38,13 +38,17 @@ async function createMovie (title, description, rating, categories_id, directors
     const { rows } = await pool.query('INSERT INTO movies (title, description, rating) VALUES ($1, $2, $3) RETURNING id', [title, description, rating])
     const movie_id = rows[0].id
 
-    categories_id.map((category_id) => {
-        createMovieCategory(movie_id, category_id)
-    })
+    await Promise.all(
+        categories_id.map(category_id =>
+            createMovieCategory(movie_id, category_id)
+        )
+    )
 
-    directors_id.map((director_id) => {
-        createMovieDirector(movie_id, director_id)
-    })
+    await Promise.all(
+        directors_id.map(director_id =>
+            createMovieDirector(movie_id, director_id)
+        )
+    )
 }
 
 async function createMovieCategory (movie_id, category_id) {
