@@ -14,8 +14,11 @@
             <%- include('partials/sidebar.ejs') %>
         </div>
 
-        <div class="col-10 row mt-3 gap-4 h-25">
-            <h4>Directors</h4>
+        <div class="col-10 row gap-4 h-25">
+            <div class="d-flex justify-content-between p-4">
+                <h4>Directors</h4>
+                <a href="/directors/create" class="text-decoration-none border border-primary rounded bg-primary text-white align-self-center p-1">Add Director</a>
+            </div>
             <% directors.forEach((director) => { %>
                 <div class="card p-3 col-3 h-25">
                     <h5><%= director.f_name %> <%= director.l_name %></h5>
