@@ -15,7 +15,10 @@
         </div>
 
         <div class="col-10 row mt-3 gap-4 h-25">
-            <h4>Categories</h4>
+            <div class="d-flex justify-content-between p-4">
+                <h4>Categories</h4>
+                <a href="/categories/create" class="text-decoration-none border border-primary rounded bg-primary text-white align-self-center p-1">Add Category</a>
+            </div>
             <% categories.forEach((category) => { %>
                 <div class="card p-3 col-3 h-25">
                     <h5><%= category.name %></h5>
